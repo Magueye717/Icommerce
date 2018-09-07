@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>liste</title>
+</h:head>
+<h:body>
+	  <div>
+		<h:dataTable value="#{ControleP.ListProduit()}" var="st" classe="table1" border="1" 
+           cellpadding="2" cellspacing="2">
+           <h:column>
+				<f:facet name="header">
+					<h:outputText value="ID"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{st.id}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Nom_produit"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{st.nom}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Référence"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{st.reference}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Prix"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{st.prix}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Quantité"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{st.quantite}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Catégorie"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{st.quategorie}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Actions"></h:outputText>
+				</f:facet>
+				<h:form>
+				<h:commandLink action="#{ControleP.suprimer(st.id)}" value="Suprimer" /> | 
+				<h:commandLink action="#{ControleP.modifierView(st)}" value="modifier" />
+				</h:form>
+			</h:column>
+			
+		</h:dataTable>
+	</div>
+	 
+</h:body>
+</html>

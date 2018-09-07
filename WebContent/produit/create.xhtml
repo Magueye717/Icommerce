@@ -1,0 +1,97 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Ajouter_produit</title>
+</h:head>
+<h:body>
+	<f:view>
+		<div>
+			<h:form>
+				<h:panelGrid colums="2">
+					<h:message for="nom" />
+					<h:outputLabel value="Nom produit" for="nom"/>
+					<h:inputText id="nom" value="#{ControleP.produit.nom}" required="true" requiredMessage="le nom ne peut pas etre vide"></h:inputText>
+					
+					
+					<h:outputLabel value="Reference du produit" for="reference"/>
+					<h:inputText id="reference" value="#{ControleP.produit.reference}"></h:inputText>
+					
+					<h:outputLabel value="Prix du produit" for="prix"/>
+					<h:inputText id="prix" value="#{ControleP.produit.prix}"></h:inputText>
+					
+					<h:outputLabel value="Quantité en stock" for="quantite"/>
+					<h:inputText id="quantite" value="#{ControleP.produit.quantite}"></h:inputText>
+					
+					<h:outputLabel value="Catégorie" for="quategorie"/>
+					<h:inputText id="quategorie" value="#{ControleP.produit.quategorie}"></h:inputText>
+					
+					<h:commandButton action="#{ControleP.ajouter()}" value="ajouter" />
+					<h:button value="Retour"
+	    					outcome="/index" />
+				</h:panelGrid>
+			</h:form>
+		</div>
+	</f:view>
+	<div>
+		<h:dataTable value="#{ControleP.ListProduit()}" var="st" classe="table1" border="1" 
+           cellpadding="2" cellspacing="2">
+           <h:column>
+				<f:facet name="header">
+					<h:outputText value="ID"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{st.id}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Nom_produit"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{st.nom}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Référence"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{st.reference}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Prix"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{st.prix}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Quantité"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{st.quantite}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Catégorie"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{st.quategorie}"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Actions"></h:outputText>
+				</f:facet>
+				<h:form>
+				<h:commandLink action="#{ControleP.suprimer(st.id)}" value="Suprimer" /> | 
+				<h:commandLink action="#{ControleP.modifierView(st)}" value="modifier" />
+				</h:form>
+			</h:column>
+			
+		</h:dataTable>
+	</div>
+				<h:column>
+				<f:facet name="header">
+					<h:outputText value="rechercher"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{st.nom}"></h:outputText>
+			</h:column>
+</h:body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title></title>
+</h:head>
+<h:body>
+	<f:view>
+		<div>
+			<h:form>
+				<h:panelGrid colums="2">
+					<h:outputLabel value="Id" for="id"/>
+					<h:inputText id="id" value="#{ControleP.produit.id}"></h:inputText>
+				
+					<h:outputLabel value="Nom produit" for="nom"/>
+					<h:inputText id="nom" value="#{ControleP.produit.nom}"></h:inputText>
+					
+					<h:outputLabel value="Reference du produit" for="reference"/>
+					<h:inputText id="reference" value="#{ControleP.produit.reference}"></h:inputText>
+					
+					<h:outputLabel value="Prix du produit" for="prix"/>
+					<h:inputText id="prix" value="#{ControleP.produit.prix}"></h:inputText>
+					
+					<h:outputLabel value="Quantité en stock" for="quantite"/>
+					<h:inputText id="quantite" value="#{ControleP.produit.quantite}"></h:inputText>
+					
+					<h:outputLabel value="Catégorie" for="quategorie"/>
+					<h:inputText id="quategorie" value="#{ControleP.produit.quategorie}"></h:inputText>
+					
+					<h:commandButton action="#{ControleP.modifier()}" value="enregistrer" />
+				</h:panelGrid>
+			</h:form>
+		</div>
+	</f:view> 
+</h:body>
+</html>
